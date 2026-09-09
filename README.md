@@ -1,126 +1,69 @@
-# MMA301 Slot 2 - React Native Component Lab
+# MMA301 Resources
 
-## Topics
+A collection of learning materials and runnable demonstrations for **MMA301 — Mobile Programming**.
 
-- React Native rendering and reconciliation
-- Core Components: `View`, `Text`, `Image`, `Button`, `Pressable`, and `TextInput`
-- Scrollable content with `ScrollView` and `FlatList`
-- Controlled input and `KeyboardAvoidingView`
-- React Navigation with Native Stack, Bottom Tabs, and Drawer
-- Route parameters and nested navigators
+The repository is organized by course slot. Each project inside `demos/` is an independent Expo application with its own dependencies and run commands, so examples from different slots can evolve without affecting one another.
 
-## Technology
-
-- Expo SDK 57
-- React Native 0.86
-- React 19
-- React Navigation 7
-
-## Application structure
+## Repository structure
 
 ```text
-Slot2Demo/
-├── assets/                     Static application images
-├── components/
-│   └── SectionCard.js          Reusable content container
-├── navigation/
-│   └── AppNavigator.js         Drawer, Tabs, and Stack configuration
-├── screens/
-│   ├── ReconciliationScreen.js Rendering and state demonstration
-│   ├── ExamplesScreen.js       Core Component examples
-│   ├── ComponentListScreen.js  FlatList and navigation source
-│   ├── DetailsScreen.js        Stack destination and route parameters
-│   └── SettingsScreen.js       Drawer destination and Switch example
-├── App.js                      Application root
-├── theme.js                    Shared colors, spacing, and styles
-└── package.json                Scripts and dependencies
+mma301-resources/
+├── demos/
+│   └── slot-02-component-lab/   React Native components and navigation
+├── .claude/                     Claude Code project settings
+├── AGENTS.md                    Coding-agent instructions
+├── CLAUDE.md                    Claude Code entry point
+├── .gitignore
+├── LICENSE
+└── README.md
 ```
 
-## Navigation structure
+Additional demos should follow the same naming convention:
 
 ```text
-Drawer Navigator
-├── Component Lab
-│   └── Bottom Tab Navigator
-│       ├── Rendering
-│       ├── Components
-│       └── Lists
-│           └── Native Stack Navigator
-│               ├── Component List
-│               └── Details
-└── Settings
+demos/slot-XX-topic-name/
 ```
 
-## Prerequisites
+## Available demos
 
-Install the following tools before running the project:
+| Slot | Demo | Main topics |
+| --- | --- | --- |
+| 02 | [React Native Component Lab](./demos/slot-02-component-lab/) | Rendering, reconciliation, core components, lists, route parameters, and React Navigation |
+
+## Requirements
 
 - Node.js 22.13 or later
 - npm
-- Android Studio with Android SDK and an Android Virtual Device
+- Android Studio with Android SDK and an Android Virtual Device, or a physical Android device with Expo Go
 - VS Code or another code editor
 
-The project uses the local Expo CLI through `npx`. A global `expo-cli` installation is not required.
+The projects use the local Expo CLI through `npx`; a global `expo-cli` installation is not required.
 
+## Run a demo
 
-## Run on Android Emulator
-
-1. Open Android Studio.
-2. Open **Device Manager** and start an Android Virtual Device.
-3. Open the project folder in VS Code.
-4. Start the Expo development server:
+Open a terminal at the repository root and enter the demo directory:
 
 ```powershell
+cd demos\slot-02-component-lab
+npm install
 npm start
 ```
 
-5. Press `a` in the terminal to open the application on Android.
+After Expo starts:
 
-You can also start Expo and open Android with one command:
+- Press `a` to open the app on a running Android emulator.
+- Scan the QR code with Expo Go to use a physical Android device.
+- Run `npm run android` to start Expo and target Android directly.
 
-```powershell
-npm run android
-```
+For the demo's topics, application structure, presentation flow, and troubleshooting notes, see its [dedicated README](./demos/slot-02-component-lab/README.md).
 
-## Demo flow
+## Repository conventions
 
-1. Open **Rendering** and press **Increase count**.
-2. Press **Reset** to restore the initial state.
-3. Open **Components** and test the standard Button and custom Pressable.
-4. Enter a name in TextInput and observe the controlled output.
-5. Open **Lists** and scroll through the FlatList.
-6. Select a component to open the Details screen.
-7. Use the Back button to demonstrate Stack Navigation.
-8. Switch between the bottom tabs.
-9. Open the Drawer and select **Settings**.
+- Keep each slot demo as an independent Expo project.
+- Store source code and assets inside the corresponding slot folder.
+- Do not commit generated folders such as `node_modules`, `.expo`, `android`, `ios`, or build output.
+- Add a dedicated README when introducing a new demo.
 
-## Available scripts
+## License
 
-| Command | Purpose |
-|---|---|
-| `npm start` | Start the Expo development server |
-| `npm run android` | Start Expo and open the Android application |
-| `npm run ios` | Start Expo and open the iOS application on macOS |
-| `npm run web` | Start the web version |
-
-## Troubleshooting
-
-### Metro uses an old cache
-
-Stop the server with `Ctrl+C`, then run:
-
-```powershell
-npx expo start --clear
-```
-
-### No Android device found
-
-- Confirm that the emulator has completed its startup process.
-- Run `adb devices` and check that the emulator appears as `device`.
-- Restart the Android Virtual Device if it appears as `offline`.
-
-### Dependency versions do not match Expo
-
-```powershell
-npx expo install --fix
-```
+This repository is provided for learning and demonstration purposes. See [LICENSE](./LICENSE) for details.
