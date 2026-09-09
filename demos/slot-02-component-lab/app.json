@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "Slot2Demo",
-    "slug": "Slot2Demo",
+    "name": "MMA301 Slot 02 Component Lab",
+    "slug": "slot-02-component-lab",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
