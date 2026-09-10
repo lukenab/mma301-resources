@@ -1,3 +1,4 @@
+import Ionicons from "@expo/vector-icons/Ionicons";
 import { NavigationContainer, DefaultTheme } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { createDrawerNavigator, DrawerToggleButton } from "@react-navigation/drawer";
@@ -12,6 +13,12 @@ import { colors } from "../theme";
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
 const Drawer = createDrawerNavigator();
+
+const TAB_ICONS = {
+  Rendering: "refresh-outline",
+  Components: "grid-outline",
+  Lists: "list-outline",
+};
 
 const navigationTheme = {
   ...DefaultTheme,
@@ -55,13 +62,16 @@ function ComponentStack() {
 function MainTabs() {
   return (
     <Tab.Navigator
-      screenOptions={{
+      screenOptions={({ route }) => ({
         headerShadowVisible: false,
         tabBarActiveTintColor: colors.primary,
         tabBarInactiveTintColor: colors.textMuted,
+        tabBarIcon: ({ color, size }) => (
+          <Ionicons color={color} name={TAB_ICONS[route.name]} size={size} />
+        ),
         tabBarLabelStyle: { fontSize: 12, fontWeight: "700" },
         tabBarStyle: { borderTopColor: colors.border },
-      }}
+      })}
     >
       <Tab.Screen
         component={ReconciliationScreen}
